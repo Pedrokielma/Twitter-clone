@@ -5,10 +5,12 @@ import { SignIn } from "@clerk/nextjs";
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const user = useUser();
 
-  console.log('user', user)
+  const { data } = api.post.getAll.useQuery();
+
+
+  console.log('data', data)
   return (
     
     <>
